@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor - Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-center text-blue-600">Student Exam Performance Predictor</h1>
+        
+        <form action="{{ url_for('predict_data')}}" method="post" class="space-y-4">
+            <div>
+                <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                <select id="gender" name="gender" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                    <option value="" disabled selected>Select your Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="race_ethnicity" class="block text-sm font-medium text-gray-700">Race or Ethnicity</label>
+                <select id="race_ethnicity" name="race_ethnicity" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                    <option value="" disabled selected>Select Ethnicity</option>
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="parental_level_of_education" class="block text-sm font-medium text-gray-700">Parental Level of Education</label>
+                <select id="parental_level_of_education" name="parental_level_of_education" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                    <option value="" disabled selected>Select Parent Education</option>
+                    <option value="associate's degree">Associate's degree</option>
+                    <option value="bachelor's degree">Bachelor's degree</option>
+                    <option value="high school">High school</option>
+                    <option value="master's degree">Master's degree</option>
+                    <option value="some college">Some college</option>
+                    <option value="some high school">Some high school</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="lunch" class="block text-sm font-medium text-gray-700">Lunch Type</label>
+                <select id="lunch" name="lunch" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                    <option value="" disabled selected>Select Lunch Type</option>
+                    <option value="free/reduced">Free/Reduced</option>
+                    <option value="standard">Standard</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="test_preparation_course" class="block text-sm font-medium text-gray-700">Test Preparation Course</label>
+                <select id="test_preparation_course" name="test_preparation_course" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                    <option value="" disabled selected>Select Test Course</option>
+                    <option value="none">None</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="writing_score" class="block text-sm font-medium text-gray-700">Writing Score (out of 100)</label>
+                <input type="number" id="writing_score" name="writing_score" min="0" max="100" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+            </div>
+
+            <div>
+                <label for="reading_score" class="block text-sm font-medium text-gray-700">Reading Score (out of 100)</label>
+                <input type="number" id="reading_score" name="reading_score" min="0" max="100" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+            </div>
+
+            <div>
+                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Predict Math Score
+                </button>
+            </div>
+        </form>
+
+        {% if results %}
+        <div class="mt-6 p-4 bg-green-100 rounded-md">
+            <h2 class="text-lg font-semibold text-green-800">Prediction Result</h2>
+            <p class="text-green-700">The predicted math score is: <span class="font-bold">{{ results }}</span></p>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="mt-6 p-4 bg-red-100 rounded-md">
+            <h2 class="text-lg font-semibold text-red-800">Error</h2>
+            <p class="text-red-700">{{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
