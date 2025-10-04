@@ -262,9 +262,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Dhruv Vakharwala**
-- Email: davakharwala20@gmail.com
-- GitHub: [@dhruv-vakharwala](https://github.com/dhruv-vakharwala)
+**Krupali Bhagat**
+- Email: krupalibhagat1155@gmail.com
+- GitHub: [@krupali-bhagat](https://github.com/krupali1105)
 
 ## 🙏 Acknowledgments
 
@@ -279,7 +279,7 @@ If you encounter any issues or have questions:
 
 1. Check the [Issues](https://github.com/your-repo/issues) page
 2. Create a new issue with detailed description
-3. Contact the author at davakharwala20@gmail.com
+3. Contact the author at krupalibhagat1155@gmail.com
 
 ---
 
